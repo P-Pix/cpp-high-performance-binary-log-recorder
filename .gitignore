@@ -1,0 +1,9 @@
+build*/
+cmake-build-*/
+*.hpblr
+*.csv
+*.json
+*.log
+.DS_Store
+.idea/
+.vscode/
