@@ -1,3 +1,10 @@
+/**
+ * @file errors.hpp
+ * @brief Définit les exceptions métier de la bibliothèque HPBLR.
+ *
+ * Elles distinguent les erreurs d’I/O, de structure de fichier, de CRC et les usages invalides de file.
+ */
+
 #pragma once
 
 #include <stdexcept>

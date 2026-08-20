@@ -1,3 +1,10 @@
+/**
+ * @file binary_log.cpp
+ * @brief Implémente la sérialisation et la lecture robuste du format HPBLR.
+ *
+ * Les entêtes et payloads sont bornés et vérifiés par CRC afin de refuser les journaux tronqués ou corrompus.
+ */
+
 #include "hpblr/binary_log.hpp"
 
 #include "hpblr/crc32.hpp"
@@ -233,6 +240,14 @@ void BinaryLogReader::read_file_header() {
     info_.version = version;
     info_.created_unix_ns = created_ns;
 }
+
+/**
+ * @brief Décode un record HPBLR en vérifiant les limites avant toute confiance dans le fichier.
+ *
+ * La taille de payload est bornée avant allocation, les CRC des métadonnées et du payload sont
+ * vérifiés séparément, puis la sévérité est validée avant construction de Event.
+ * @return Événement validé ou std::nullopt à EOF.
+ */
 
 std::optional<Event> BinaryLogReader::next() {
     std::array<std::uint8_t, kRecordHeaderSize> header{};

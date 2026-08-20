@@ -1,3 +1,10 @@
+/**
+ * @file blocking_queue.hpp
+ * @brief Définit la file bornée thread-safe utilisée pour la backpressure.
+ *
+ * La fermeture réveille producteurs et consommateur afin de permettre un arrêt déterministe sans perdre les événements déjà acceptés.
+ */
+
 #pragma once
 
 #include <condition_variable>
@@ -7,6 +14,15 @@
 #include <utility>
 
 namespace hpblr {
+
+/**
+ * @brief File FIFO bornée fournissant backpressure et fermeture coordonnée.
+ *
+ * push() bloque tant que la capacité est atteinte, alors que try_push() permet une stratégie
+ * non bloquante. close() réveille tous les waiters ; pop() continue de drainer les éléments
+ * déjà présents avant de signaler la fin.
+ * @tparam T Type d’élément transféré entre producteurs et consommateur.
+ */
 
 template <typename T>
 class BlockingQueue {

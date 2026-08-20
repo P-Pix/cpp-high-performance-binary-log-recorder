@@ -1,3 +1,10 @@
+/**
+ * @file event.cpp
+ * @brief Implémente les conversions et représentations utilitaires du modèle Event.
+ *
+ * Ces helpers sont partagés par le lecteur, les filtres et les outils d’export.
+ */
+
 #include "hpblr/event.hpp"
 
 #include <array>

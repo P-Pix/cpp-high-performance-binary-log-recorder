@@ -1,3 +1,10 @@
+/**
+ * @file crc32.cpp
+ * @brief Implémente le CRC-32 utilisé par le format de journal binaire.
+ *
+ * La table est construite à la compilation pour limiter le coût du calcul à l’exécution.
+ */
+
 #include "hpblr/crc32.hpp"
 
 #include <array>

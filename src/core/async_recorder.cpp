@@ -1,3 +1,10 @@
+/**
+ * @file async_recorder.cpp
+ * @brief Implémente le pipeline asynchrone d’enregistrement HPBLR.
+ *
+ * Le thread d’écriture draine la file jusqu’à sa fermeture et propage ses erreurs vers les appels synchrones de contrôle.
+ */
+
 #include "hpblr/async_recorder.hpp"
 
 namespace hpblr {
@@ -46,6 +53,13 @@ AsyncRecorderStats AsyncRecorder::stats() const {
         written_.load(std::memory_order_relaxed),
         queue_.size()};
 }
+
+/**
+ * @brief Boucle du consommateur qui draine la file vers BinaryLogWriter.
+ *
+ * Toute exception du chemin disque est capturée et mémorisée : les producteurs ne lancent pas
+ * depuis ce thread, mais stop()/submit() peuvent ensuite retransmettre l’échec de façon contrôlée.
+ */
 
 void AsyncRecorder::run() {
     try {

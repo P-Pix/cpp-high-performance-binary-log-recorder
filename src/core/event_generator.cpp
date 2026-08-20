@@ -1,3 +1,10 @@
+/**
+ * @file event_generator.cpp
+ * @brief Implémente la génération reproductible d’événements de charge.
+ *
+ * Le générateur encode quelques métadonnées dans le payload puis complète avec un PRNG initialisé de façon déterministe.
+ */
+
 #include "hpblr/event_generator.hpp"
 
 #include "hpblr/time_utils.hpp"

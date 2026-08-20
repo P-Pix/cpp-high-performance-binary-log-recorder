@@ -1,3 +1,10 @@
+/**
+ * @file logger.cpp
+ * @brief Implémente la sortie de diagnostic synchronisée des outils HPBLR.
+ *
+ * Le verrou protège la configuration et évite l’entrelacement des lignes écrites par plusieurs threads.
+ */
+
 #include "hpblr/logger.hpp"
 
 #include "hpblr/time_utils.hpp"

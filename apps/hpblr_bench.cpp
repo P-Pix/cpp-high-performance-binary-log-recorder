@@ -1,3 +1,10 @@
+/**
+ * @file hpblr_bench.cpp
+ * @brief Implémente le benchmark end-to-end de l’enregistreur binaire.
+ *
+ * La mesure inclut la génération, la file, le thread d’écriture et la production du fichier afin de refléter le débit réel du pipeline.
+ */
+
 #include "hpblr/async_recorder.hpp"
 #include "hpblr/event_generator.hpp"
 

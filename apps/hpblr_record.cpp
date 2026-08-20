@@ -1,3 +1,10 @@
+/**
+ * @file hpblr_record.cpp
+ * @brief Implémente l’outil de génération et d’enregistrement multi-producteurs.
+ *
+ * L’application pilote plusieurs producteurs synthétiques et confie la persistance à AsyncRecorder.
+ */
+
 #include "hpblr/async_recorder.hpp"
 #include "hpblr/event_generator.hpp"
 #include "hpblr/logger.hpp"

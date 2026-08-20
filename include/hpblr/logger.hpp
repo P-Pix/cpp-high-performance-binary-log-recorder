@@ -1,3 +1,10 @@
+/**
+ * @file logger.hpp
+ * @brief Déclare le logger thread-safe des outils HPBLR.
+ *
+ * Il centralise le niveau minimal et la duplication éventuelle des diagnostics vers un fichier.
+ */
+
 #pragma once
 
 #include <filesystem>
@@ -13,6 +20,13 @@ enum class LogLevel {
     warning = 2,
     error = 3
 };
+
+/**
+ * @brief Fournit une journalisation globale sérialisée pour les outils HPBLR.
+ *
+ * Le logger est partagé entre producteurs et thread writer ; son mutex protège à la fois la
+ * configuration et l’émission des lignes console/fichier.
+ */
 
 class Logger {
 public:

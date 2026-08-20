@@ -1,3 +1,10 @@
+/**
+ * @file event.hpp
+ * @brief Définit le modèle d’événement enregistré dans les fichiers HPBLR.
+ *
+ * Le payload reste opaque pour conserver un cœur générique réutilisable pour télémétrie, instrumentation ou traces techniques.
+ */
+
 #pragma once
 
 #include <cstddef>
@@ -17,6 +24,13 @@ enum class Severity : std::uint16_t {
     error = 4,
     critical = 5
 };
+
+/**
+ * @brief Représente l’unité persistée dans le journal binaire.
+ *
+ * Le sequence est fourni par l’application productrice et le payload n’est pas interprété par
+ * la bibliothèque, ce qui permet de conserver HPBLR indépendant d’un domaine métier précis.
+ */
 
 struct Event {
     std::uint64_t timestamp_ns = 0;

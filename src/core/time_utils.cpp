@@ -1,3 +1,10 @@
+/**
+ * @file time_utils.cpp
+ * @brief Implémente les conversions temporelles communes à HPBLR.
+ *
+ * Le formatage UTC conserve la précision nanoseconde utilisée dans les événements enregistrés.
+ */
+
 #include "hpblr/time_utils.hpp"
 
 #include <chrono>

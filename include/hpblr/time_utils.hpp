@@ -1,3 +1,10 @@
+/**
+ * @file time_utils.hpp
+ * @brief Déclare les utilitaires de timestamp nanoseconde et de formatage UTC.
+ *
+ * Ces fonctions donnent une représentation temporelle commune aux événements et aux journaux de diagnostic.
+ */
+
 #pragma once
 
 #include <cstdint>

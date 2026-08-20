@@ -1,3 +1,10 @@
+/**
+ * @file hpblr_tool.cpp
+ * @brief Implémente l’outil d’inspection, filtrage et export des fichiers HPBLR.
+ *
+ * Tous les modes de lecture passent par BinaryLogReader afin de conserver les mêmes validations de format et de CRC.
+ */
+
 #include "hpblr/binary_log.hpp"
 #include "hpblr/event.hpp"
 #include "hpblr/filter.hpp"

@@ -1,3 +1,10 @@
+/**
+ * @file filter.hpp
+ * @brief Définit les critères de filtrage applicables lors du replay des événements.
+ *
+ * Les critères optionnels sont combinés afin de conserver uniquement les événements correspondant à la sélection demandée.
+ */
+
 #pragma once
 
 #include "hpblr/event.hpp"
@@ -6,6 +13,13 @@
 #include <optional>
 
 namespace hpblr {
+
+/**
+ * @brief Regroupe les critères optionnels appliqués aux événements relus.
+ *
+ * Un événement doit satisfaire tous les critères renseignés ; les champs absents ne restreignent
+ * pas la sélection.
+ */
 
 struct EventFilter {
     std::optional<std::uint32_t> producer_id;
